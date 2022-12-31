@@ -55,3 +55,13 @@ def get_series(lst):
             result.append(item)
             
     return sorted(result,key=lambda item: item.tytul)
+
+def search(lst,tytul):
+    result=[]
+    for item in lst:
+        if item.tytul==tytul:
+            result.append(item)
+    if result:
+        return result
+    else:
+        return 'Nie ma takiego fimu na liście'
