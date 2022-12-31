@@ -40,3 +40,18 @@ S5=Seriale('Alternatywy 4', 1986, 'komedia', 0, 2, 1 )
 S6=Seriale('Chyłka', 2015, 'sensacja', 0, 1, 1 )
 S7=Seriale('Chyłka', 2015, 'sensacja', 0, 2, 1 )
 
+def get_movies(lst):
+    result=[]
+    for item in lst:
+        if not isinstance(item,Seriale):
+            result.append(item)
+            
+    return sorted(result,key=lambda item: item.tytul)
+
+def get_series(lst):
+    result=[]
+    for item in lst:
+        if isinstance(item,Seriale):
+            result.append(item)
+            
+    return sorted(result,key=lambda item: item.tytul)
