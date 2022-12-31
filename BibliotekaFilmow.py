@@ -76,3 +76,5 @@ def generate_10(lst):
     for i in range (10):
         print (generate_views(lst))
 
+def top_titles(lst,limit):
+    return sorted(lst, key=lambda item: item.liczba_wyswietlen, reverse=True)[:limit]
