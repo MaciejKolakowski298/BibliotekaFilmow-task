@@ -65,3 +65,14 @@ def search(lst,tytul):
         return result
     else:
         return 'Nie ma takiego fimu na liście'
+
+def generate_views(lst):
+    import random
+    hit=random.choice(lst)
+    hit.liczba_wyswietlen+=random.randint(1,100)
+    return hit.tytul, hit.liczba_wyswietlen
+
+def generate_10(lst):
+    for i in range (10):
+        print (generate_views(lst))
+
