@@ -14,6 +14,7 @@ class Filmy:
     def __repr__(self):
         return f"Film ({self.tytul},{self.rok_wydania}, {self.liczba_wyswietlen})"
 
+
 class Seriale(Filmy):
     def __init__(self, tytul, rok_wydania, gatunek, liczba_wyswietlen, numer_odcinka, numer_sezonu):
         super().__init__(tytul, rok_wydania, gatunek, liczba_wyswietlen)
@@ -40,6 +41,20 @@ S5=Seriale('Alternatywy 4', 1986, 'komedia', 0, 2, 1 )
 S6=Seriale('Chyłka', 2015, 'sensacja', 0, 1, 1 )
 S7=Seriale('Chyłka', 2015, 'sensacja', 0, 2, 1 )
 
+#F1.play()
+#F1.play()
+#F5.play()
+
+#print(F1.liczba_wyswietlen)
+#print(F5.liczba_wyswietlen)
+
+
+#S1.play()
+#S4.play()
+#S6.play()
+
+#print (Filmy.lista)
+
 def get_movies(lst):
     result=[]
     for item in lst:
@@ -48,6 +63,8 @@ def get_movies(lst):
             
     return sorted(result,key=lambda item: item.tytul)
 
+#print (get_movies(Filmy.lista))
+
 def get_series(lst):
     result=[]
     for item in lst:
@@ -55,6 +72,8 @@ def get_series(lst):
             result.append(item)
             
     return sorted(result,key=lambda item: item.tytul)
+
+#print(get_series(Filmy.lista))
 
 def search(lst,tytul):
     result=[]
@@ -66,15 +85,25 @@ def search(lst,tytul):
     else:
         return 'Nie ma takiego fimu na liście'
 
+#print (search(Filmy.lista,'Commando'))
+#print (search(Filmy.lista,'Robocop'))
+
 def generate_views(lst):
     import random
     hit=random.choice(lst)
     hit.liczba_wyswietlen+=random.randint(1,100)
     return hit.tytul, hit.liczba_wyswietlen
 
+#print (generate_views(Filmy.lista))
+
 def generate_10(lst):
     for i in range (10):
         print (generate_views(lst))
 
+generate_10(Filmy.lista)
+
 def top_titles(lst,limit):
     return sorted(lst, key=lambda item: item.liczba_wyswietlen, reverse=True)[:limit]
+
+print (top_titles(Filmy.lista,3))
+
